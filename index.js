@@ -8,7 +8,7 @@ const session = require("express-session")
 const sqlite3 = require("better-sqlite3")
 const better_sqlite3_session_store = require("better-sqlite3-session-store")
 
-const database = new sqlite3("./databases/database.sqlite")
+const database = new sqlite3("database.sqlite")
 
 const app = express()
 const PORT = process.env.PORT || 3000
