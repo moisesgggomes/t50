@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head.ejs", { title: "Home" }) %>
+
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <%- include("../partials/header.ejs", { name }) %>
+
+    <main>
+        <div>
+            <h2>
+                <span>Create, update and delete your tasks!</span>
+                <img src="assets/help.svg" alt="Help to use the options" title="Help" />
+            </h2>
+            <div id="pageActions">
+                <img id="deleteTasks" class="" src="assets/trash.svg" alt="Delete tasks" onclick="deleteTasks(event)" title="Delete Tasks" />
+                <img src="assets/reload.svg" alt="Refresh tasks" onclick="getTasks(event)" title="Refresh tasks" />
+                <img src="assets/create.svg" alt="Create task" onclick="createTask(event)" title="Create task" />
+            </div>
+        </div>
+
+        <div id="help" class="">
+            <ul>
+                <li>Click in the <img src="assets/reload.svg" alt="Reload icon" /> icon to refresh the content from the server database</li>
+                <li>Click in the <img src="assets/create.svg" alt="Create task icon" /> icon to create a new task. Don't forget to click in the <img src="assets/confirm.svg" alt="Confirm icon" /> icon to save to the database</li>
+                <li>To update an already created task, you can simply click in the specific &quot;task&quot; or &quot;description&quot; field to edit the content. Don't forget to click in the <img src="assets/edit.svg" alt="Edit icon" /> icon right after to save the changes (the same goes to mark a task as finished by clicking in the check-box)</li>
+                <li>To delete tasks you can click in the <img src="assets/delete.svg" alt="Delete task icon" /> icon one by one. To submit the changes you have to click in the <img src="assets/trash.svg" alt="Delete from database" /> icon (next to the <img src="assets/reload.svg" alt="Reload icon" /> icon)</li>
+                <li>No changes will be submited until you click the <img src="assets/edit.svg" alt="Edit icon" /> icon. Don't forget to do it! For deleting or creating tasks, you just have to follow the instructions above</li>
+            </ul>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Finished</th>
+                    <th>Task</th>
+                    <th>Details</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </main>
+    
+    <%- include("../partials/footer.ejs") %>
+
+    <script src="home.js"></script>
+</body>
+</html>
