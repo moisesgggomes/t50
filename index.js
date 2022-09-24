@@ -1,6 +1,4 @@
 const path = require("path")
-const dotenv = require("dotenv")
-dotenv.config()
 
 const { signUp, login } = require("./utils/login_signup")
 const { getTasks, createTask, updateTask, deleteTasks } = require("./utils/tasks")
@@ -10,10 +8,11 @@ const session = require("express-session")
 const sqlite3 = require("better-sqlite3")
 const better_sqlite3_session_store = require("better-sqlite3-session-store")
 
-const database = new sqlite3("databases/database.sqlite")
+const database = new sqlite3("./databases/database.sqlite")
 
 const app = express()
-app.listen(8080)
+const PORT = process.env.PORT || 3000
+app.listen(PORT)
 
 const SQLiteStore = better_sqlite3_session_store(session)
 
@@ -190,3 +189,5 @@ app.delete("/tasks", isAuthenticated, (request, response) => {
     return response.status(200).json(result)
 })
 app.delete("/tasks", redirectNotAuthenticated)
+
+module.exports = app
